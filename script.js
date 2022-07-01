@@ -1,4 +1,5 @@
 const body = document.body
+// querySelectorAll returns a nodeList
 const slides = document.querySelectorAll('.slide')
 const leftBtn = document.getElementById('left')
 const rightBtn = document.getElementById('right')
@@ -10,6 +11,17 @@ rightBtn.addEventListener('click', () => {
 
     if (activeSlide > slides.length - 1) {
         activeSlide = 0
+    }
+    setBgToBody()
+    setActiveSlide()
+})
+
+leftBtn.addEventListener('click', () => {
+    activeSlide--
+
+    if (activeSlide < 0) {
+        // sets to the last slide in the nodeList
+        activeSlide = slides.length - 1
     }
     setBgToBody()
     setActiveSlide()
